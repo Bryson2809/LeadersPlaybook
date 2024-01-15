@@ -1,0 +1,142 @@
+[debug] [2024-01-15T15:22:12.159Z] ----------------------------------------------------------------------
+[debug] [2024-01-15T15:22:12.161Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bryso\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-01-15T15:22:12.161Z] CLI Version:   13.0.3
+[debug] [2024-01-15T15:22:12.161Z] Platform:      win32
+[debug] [2024-01-15T15:22:12.161Z] Node Version:  v18.17.1
+[debug] [2024-01-15T15:22:12.162Z] Time:          Mon Jan 15 2024 10:22:12 GMT-0500 (Eastern Standard Time)
+[debug] [2024-01-15T15:22:12.162Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-01-15T15:22:12.170Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-01-15T15:22:12.171Z] > authorizing via signed-in user (bryson2809@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\bryso\OneDrive\Desktop\playbook
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-01-15T15:22:20.985Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2024-01-15T15:22:21.365Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-01-15T15:22:21.365Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project playbook-34373 (playbook) 
+[info] 
+=== Database Setup
+[info] i  database: ensuring required API firebasedatabase.googleapis.com is enabled... 
+[debug] [2024-01-15T15:22:22.936Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/playbook-34373/services/firebasedatabase.googleapis.com [none]
+[debug] [2024-01-15T15:22:22.936Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/playbook-34373/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/playbook-34373
+[debug] [2024-01-15T15:22:23.306Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/playbook-34373/services/firebasedatabase.googleapis.com 200
+[debug] [2024-01-15T15:22:23.306Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/playbook-34373/services/firebasedatabase.googleapis.com [omitted]
+[info] +  database: required API firebasedatabase.googleapis.com is enabled 
+[info] 
+[debug] [2024-01-15T15:22:23.307Z] >>> [apiv2][query] GET https://firebasedatabase.googleapis.com/v1beta/projects/playbook-34373/locations/-/instances/playbook-34373-default-rtdb [none]
+[debug] [2024-01-15T15:22:23.613Z] <<< [apiv2][status] GET https://firebasedatabase.googleapis.com/v1beta/projects/playbook-34373/locations/-/instances/playbook-34373-default-rtdb 200
+[debug] [2024-01-15T15:22:23.613Z] <<< [apiv2][body] GET https://firebasedatabase.googleapis.com/v1beta/projects/playbook-34373/locations/-/instances/playbook-34373-default-rtdb {"name":"projects/933715816117/locations/us-central1/instances/playbook-34373-default-rtdb","project":"projects/933715816117","databaseUrl":"https://playbook-34373-default-rtdb.firebaseio.com","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[info] 
+[info] Firebase Realtime Database Security Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2024-01-15T15:22:27.470Z] >>> [apiv2][query] GET https://playbook-34373-default-rtdb.firebaseio.com/.settings/rules.json [none]
+[debug] [2024-01-15T15:22:27.711Z] <<< [apiv2][status] GET https://playbook-34373-default-rtdb.firebaseio.com/.settings/rules.json 200
+[debug] [2024-01-15T15:22:27.711Z] <<< [apiv2][body] GET https://playbook-34373-default-rtdb.firebaseio.com/.settings/rules.json [stream]
+[info] +  Database Rules for playbook-34373-default-rtdb have been written to database.rules.json. 
+[info] Future modifications to database.rules.json will update Realtime Database Security Rules when you run
+[info] firebase deploy.
+[info] 
+=== Firestore Setup
+[debug] [2024-01-15T15:22:27.714Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/playbook-34373/services/firestore.googleapis.com [none]
+[debug] [2024-01-15T15:22:27.714Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/playbook-34373/services/firestore.googleapis.com x-goog-quota-user=projects/playbook-34373
+[debug] [2024-01-15T15:22:28.178Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/playbook-34373/services/firestore.googleapis.com 200
+[debug] [2024-01-15T15:22:28.178Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/playbook-34373/services/firestore.googleapis.com [omitted]
+[debug] [2024-01-15T15:22:28.178Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/playbook-34373/databases/(default) [none]
+[debug] [2024-01-15T15:22:28.627Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/playbook-34373/databases/(default) 200
+[debug] [2024-01-15T15:22:28.628Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/playbook-34373/databases/(default) {"name":"projects/playbook-34373/databases/(default)","uid":"f6fac8cc-219d-4345-8fb8-08587f1d41d8","createTime":"2024-01-15T15:21:57.675086Z","updateTime":"2024-01-15T15:21:57.675086Z","locationId":"nam5","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2024-01-15T15:21:57.675086Z","appEngineIntegrationMode":"DISABLED","keyPrefix":"s","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","etag":"IOCVu6fZ34MDMM645JjZ34MD"}
+[debug] [2024-01-15T15:22:28.628Z] database_type: FIRESTORE_NATIVE
+[debug] [2024-01-15T15:22:28.628Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-01-15T15:22:28.628Z] > authorizing via signed-in user (bryson2809@gmail.com)
+[debug] [2024-01-15T15:22:28.628Z] [iam] checking project playbook-34373 for permissions ["firebase.projects.get"]
+[debug] [2024-01-15T15:22:28.629Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/playbook-34373:testIamPermissions [none]
+[debug] [2024-01-15T15:22:28.629Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/playbook-34373:testIamPermissions x-goog-quota-user=projects/playbook-34373
+[debug] [2024-01-15T15:22:28.629Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/playbook-34373:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-01-15T15:22:29.033Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/playbook-34373:testIamPermissions 200
+[debug] [2024-01-15T15:22:29.033Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/playbook-34373:testIamPermissions {"permissions":["firebase.projects.get"]}
+[info] 
+[info] Firestore Security Rules allow you to define how and when to allow
+[info] requests. You can keep these rules in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2024-01-15T15:22:31.070Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/playbook-34373/releases pageSize=10&pageToken=
+[debug] [2024-01-15T15:22:31.531Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/playbook-34373/releases 200
+[debug] [2024-01-15T15:22:31.531Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/playbook-34373/releases {"releases":[{"name":"projects/playbook-34373/releases/cloud.firestore","rulesetName":"projects/playbook-34373/rulesets/2c2df721-f1c0-41cd-8f61-c1ed06332894","createTime":"2024-01-15T15:21:59.913706Z","updateTime":"2024-01-15T15:21:59.913706Z"}]}
+[debug] [2024-01-15T15:22:31.531Z] Found ruleset: projects/playbook-34373/rulesets/2c2df721-f1c0-41cd-8f61-c1ed06332894
+[debug] [2024-01-15T15:22:31.531Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/playbook-34373/rulesets/2c2df721-f1c0-41cd-8f61-c1ed06332894 [none]
+[debug] [2024-01-15T15:22:31.830Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/playbook-34373/rulesets/2c2df721-f1c0-41cd-8f61-c1ed06332894 200
+[debug] [2024-01-15T15:22:31.830Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/playbook-34373/rulesets/2c2df721-f1c0-41cd-8f61-c1ed06332894 [omitted]
+[info] 
+[info] Firestore indexes allow you to perform complex queries while
+[info] maintaining performance that scales with the size of the result
+[info] set. You can keep index definitions in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2024-01-15T15:22:33.786Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/playbook-34373/databases/(default)/collectionGroups/-/indexes [none]
+[debug] [2024-01-15T15:22:33.787Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/playbook-34373/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* [none]
+[debug] [2024-01-15T15:22:34.201Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/playbook-34373/databases/(default)/collectionGroups/-/indexes 200
+[debug] [2024-01-15T15:22:34.201Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/playbook-34373/databases/(default)/collectionGroups/-/indexes {}
+[debug] [2024-01-15T15:22:34.570Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/playbook-34373/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* 200
+[debug] [2024-01-15T15:22:34.570Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/playbook-34373/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* {"fields":[{"name":"projects/playbook-34373/databases/(default)/collectionGroups/__default__/fields/*","indexConfig":{"indexes":[{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"ASCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"DESCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","arrayConfig":"CONTAINS"}],"state":"READY"}]}}]}
+[info] 
+=== Functions Setup
+[debug] [2024-01-15T15:22:34.573Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-01-15T15:22:34.573Z] > authorizing via signed-in user (bryson2809@gmail.com)
+[debug] [2024-01-15T15:22:34.573Z] [iam] checking project playbook-34373 for permissions ["firebase.projects.get"]
+[debug] [2024-01-15T15:22:34.573Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/playbook-34373:testIamPermissions [none]
+[debug] [2024-01-15T15:22:34.573Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/playbook-34373:testIamPermissions x-goog-quota-user=projects/playbook-34373
+[debug] [2024-01-15T15:22:34.573Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/playbook-34373:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-01-15T15:22:34.858Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/playbook-34373:testIamPermissions 200
+[debug] [2024-01-15T15:22:34.859Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/playbook-34373:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-01-15T15:22:34.859Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/playbook-34373/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-01-15T15:22:34.859Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/playbook-34373/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/playbook-34373
+[debug] [2024-01-15T15:22:34.860Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/playbook-34373/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-01-15T15:22:34.860Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/playbook-34373/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/playbook-34373
+[debug] [2024-01-15T15:22:35.237Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/playbook-34373/services/runtimeconfig.googleapis.com 200
+[debug] [2024-01-15T15:22:35.238Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/playbook-34373/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-01-15T15:22:35.239Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/playbook-34373/services/cloudfunctions.googleapis.com 200
+[debug] [2024-01-15T15:22:35.239Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/playbook-34373/services/cloudfunctions.googleapis.com [omitted]
+[debug] [2024-01-15T15:22:35.239Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/playbook-34373/services/cloudfunctions.googleapis.com:enable [none]
+[debug] [2024-01-15T15:22:35.239Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/playbook-34373/services/cloudfunctions.googleapis.com:enable x-goog-quota-user=projects/playbook-34373
+[debug] [2024-01-15T15:22:36.248Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/playbook-34373/services/cloudfunctions.googleapis.com:enable 200
+[debug] [2024-01-15T15:22:36.249Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/playbook-34373/services/cloudfunctions.googleapis.com:enable [omitted]
+[debug] [2024-01-15T15:22:46.260Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/playbook-34373/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-01-15T15:22:46.260Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/playbook-34373/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/playbook-34373
+[debug] [2024-01-15T15:22:46.827Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/playbook-34373/services/cloudfunctions.googleapis.com 200
+[debug] [2024-01-15T15:22:46.827Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/playbook-34373/services/cloudfunctions.googleapis.com [omitted]
+[info] Let's create a new codebase for your functions.
+[info] A directory corresponding to the codebase will be created in your project
+[info] with sample code pre-configured.
+
+[info] See https://firebase.google.com/docs/functions/organize-functions for
+[info] more information on organizing your functions using codebases.
+
+[info] Functions can be deployed with firebase deploy.
+
+[info] +  Wrote functions/requirements.txt 
+[info] +  Wrote functions/.gitignore 
+[info] +  Wrote functions/main.py 
+[debug] [2024-01-15T15:23:52.318Z] Running command with virtualenv: command="C:\Users\bryso\OneDrive\Desktop\playbook\functions\venv\Scripts\activate.bat", args=["","&&","pip3","install","--upgrade","pip"]
+[debug] [2024-01-15T15:23:56.619Z] Error: spawn "C:\Users\bryso\OneDrive\Desktop\playbook\functions\venv\Scripts\activate.bat" ENOENT
+    at notFoundError (C:\Users\bryso\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:6:26)
+    at verifyENOENT (C:\Users\bryso\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:40:16)
+    at cp.emit (C:\Users\bryso\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:27:25)
+    at ChildProcess._handle.onexit (node:internal/child_process:291:12)
+[error] 
+[error] Error: An unexpected error has occurred.
