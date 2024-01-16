@@ -1,7 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { isAutoAccessorPropertyDeclaration } from "typescript";
+
+import FiveSCard from "./components/FiveSCard.jsx";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -23,10 +25,10 @@ const analytics = getAnalytics(app);
 
 const App = () => {
     return (
-        <div>
-            <h1>Hellow World!</h1>
-        </div>
-    )
+       <div>
+            <FiveSCard />
+       </div>
+    );
 }
 
 export default App;
