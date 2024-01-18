@@ -2,10 +2,14 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 
 import "../App.css";
-import { getValue } from '@testing-library/user-event/dist/utils';
+//import { getValue } from '@testing-library/user-event/dist/utils';
 
 const RACICard = () => {
-    const [text, setText] = useState("");
+    const [text, setText] = useState("test");
+
+    const updateText = (props) => {
+        setText(props);
+    }
 
     return (
         <div className="RACIMatrix">
@@ -15,7 +19,7 @@ const RACICard = () => {
 
                     </th>
                     <th>
-                        <input type="text" placeholder="Who?" />
+                        <input type="text" placeholder="Who?" onChange={(e) => updateText(e.target.value)} />
                     </th>
                     <th>
                         <input type="text" placeholder="Who?" />
