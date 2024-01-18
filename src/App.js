@@ -4,6 +4,8 @@ import { getAnalytics } from "firebase/analytics";
 
 import FiveSCard from "./components/FiveSCard.jsx";
 
+import "./App.css";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 

@@ -6,7 +6,7 @@ import RACICard from './RACICard';
 const FiveSCard = () => {
     return (
         <div>
-            <h1>5s</h1>
+            <RACICard />
         </div>
     );
 }
