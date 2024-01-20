@@ -3,6 +3,8 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
 import FiveSCard from "./components/FiveSCard.jsx";
+import PlaybookHeaderCard from "./components/PlaybookHeaderCard.jsx";
+import HeaderCard from "./components/HeaderCard.jsx";
 
 import "./App.css";
 
@@ -27,8 +29,9 @@ const analytics = getAnalytics(app);
 
 const App = () => {
     return (
-       <div>
-            <FiveSCard />
+       <div className="Container">
+        <HeaderCard />
+        <PlaybookHeaderCard />
        </div>
     );
 }

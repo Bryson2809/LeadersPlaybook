@@ -5,3 +5,20 @@ table {
 th {
     border: 1px solid black;
 }
+
+.PlaybookHeader {
+    text-align: center;
+    background-color: darkgray;
+    padding-bottom: 0;
+}
+
+.Header {
+    text-align: center;
+    color: #E51636;
+    padding-top: 0;
+    text-decoration: underline;
+}
+
+.Container {
+    background-color: white;
+}
