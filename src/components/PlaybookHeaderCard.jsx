@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 
-const PlaybooHeaderCard = () => {
+const PlaybookHeaderCard = () => {
     const [area, setArea] = useState("General");
 
     return (
@@ -11,4 +11,4 @@ const PlaybooHeaderCard = () => {
     );
 }
 
-export default PlaybooHeaderCard;
+export default PlaybookHeaderCard;
