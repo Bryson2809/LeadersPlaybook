@@ -1,12 +1,13 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { Route, Routes } from "react-router-dom";
 
-import FiveSCard from "./components/FiveSCard.jsx";
-import PlaybookHeaderCard from "./components/PlaybookHeaderCard.jsx";
-import HeaderCard from "./components/HeaderCard.jsx";
-import PlaybookInfoHeader from "./components/PlaybookInfoHeader.jsx";
-import PlaybookCard from "./components/PlaybookCard.jsx";
+import HeaderCard from "./components/HeaderCard";
+import PlaybookPage from "./pages/PlaybookPage";
+import HomePage from "./pages/HomePage";
+import SchdeulePage from "./pages/ScedulePage";
+import Nav from "./components/Nav";
 
 import "./App.css";
 
@@ -31,9 +32,14 @@ const analytics = getAnalytics(app);
 
 const App = () => {
     return (
-       <div className="Container">
+      <div>
+        <Nav />
         <HeaderCard />
-        <PlaybookCard />
+        <Routes>
+          <Route path="/" exact Component={HomePage} />
+          <Route path="/playbook" Component={PlaybookPage} />
+          <Route path="/schedule" Component={SchdeulePage} />
+        </Routes>
        </div>
     );
 }
