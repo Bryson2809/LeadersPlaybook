@@ -6,7 +6,7 @@ import PlaybookCard from "../components/PlaybookCard";
 const PlaybookPage = () => {
     return (
         <div>
-            <PlaybookCard />
+            Playbooks Page
         </div>
     );
 }

@@ -7,8 +7,7 @@ const PlaybookCard = () => {
 
     return (
         <div>
-            <PlaybookHeaderCard />
-            <PlaybookInfoHeader />
+            
         </div>
     );
 }
