@@ -1,11 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase";
-
-//import { register, auth, onSubmit } from "../utils/firebase";
 
 const SignUpPage = () => {
     const navigate = useNavigate();

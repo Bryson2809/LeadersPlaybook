@@ -1,7 +1,7 @@
 import React from "react";
 //import { useState, useEffect } from "react";
 
-const SchdeulePage = () => {
+const SchedulePage = () => {
     return (
         <div>
             Schedule Page
@@ -9,4 +9,4 @@ const SchdeulePage = () => {
     );
 }
 
-export default SchdeulePage;
+export default SchedulePage;

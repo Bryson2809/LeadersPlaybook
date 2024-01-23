@@ -6,8 +6,9 @@ import { getAnalytics } from "firebase/analytics";
 
 import PlaybookPage from "./pages/PlaybookPage";
 import HomePage from "./pages/HomePage";
-import SchdeulePage from "./pages/ScedulePage";
+import SchedulePage from "./pages/SchedulePage";
 import SignUpPage from "./pages/SignUpPage";
+import LogInPage from "./pages/LogInPage";
 
 import HeaderCard from "./components/HeaderCard";
 import Nav from "./components/Nav";
@@ -42,10 +43,11 @@ const App = () => {
         <Nav />
         <HeaderCard />
         <Routes>
-          <Route path="/" exact Component={SignUpPage} />
+          <Route path="/" exact Component={LogInPage} />
           <Route path="/home" Component={HomePage} />
           <Route path="/playbook" Component={PlaybookPage} />
-          <Route path="/schedule" Component={SchdeulePage} />
+          <Route path="/schedule" Component={SchedulePage} />
+          <Route path="/signup" Component={SignUpPage} />
         </Routes>
        </div>
     );
