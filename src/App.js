@@ -14,7 +14,8 @@ import Nav from "./components/Nav";
 
 import "./App.css";
 
-import register from "./utils/firebase";
+// import register from "./utils/firebase";
+// import { firebaseConfig } from "./utils/firebase";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries

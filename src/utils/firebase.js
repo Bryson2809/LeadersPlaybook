@@ -20,7 +20,7 @@ import {
 //     deleteDoc,
 //   } from "firease/firestore";
 
-  const firebaseConfig = {
+  export const firebaseConfig = {
     apiKey: "AIzaSyA917SHi6_5Kp2fH-IZX5zPkr3TnivT8pE",
     authDomain: "playbook-34373.firebaseapp.com",
     projectId: "playbook-34373",
@@ -41,8 +41,27 @@ import {
         const { user } = await createUserWithEmailAndPassword(auth, email, password);
         return user;
     } catch (e) {
+        console.log(e);
         return false;
     }
+  }
+
+  export const onSubmit = async (e) => {
+    //e.preventDefault()
+   
+    await createUserWithEmailAndPassword(auth, e.email, e.password)
+      .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+          // ...
+      })
+      .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode, errorMessage);
+          // ..
+      });
   }
 
   const login = async ({ email, password }) => {

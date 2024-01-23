@@ -2,7 +2,10 @@ import React from "react";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
-import { register } from "../utils/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../utils/firebase";
+
+//import { register, auth, onSubmit } from "../utils/firebase";
 
 const SignUpPage = () => {
     const navigate = useNavigate();
@@ -10,8 +13,23 @@ const SignUpPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] =  useState("");
 
-    const onSubmit = async (props) => {
-        register(props.email, props.password);
+    const onSubmit = async (e) => {
+        e.preventDefault()
+       
+        await createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+              // Signed in
+              const user = userCredential.user;
+              console.log(user);
+              navigate("/login")
+              // ...
+          })
+          .catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              console.log(errorCode, errorMessage);
+              // ..
+          });
     }
 
     return (
@@ -19,7 +37,7 @@ const SignUpPage = () => {
             <h1>Leaders Playbook</h1>
             <form>
                 <div>
-                    <label htmlfor="email address">
+                    <label htmlFor="email address">
                         Email Address
                     </label>
                     <input
@@ -33,7 +51,7 @@ const SignUpPage = () => {
                 </div>
 
                 <div>
-                    <label htmlfor="password">
+                    <label htmlFor="password">
                         password
                     </label>
                     <input 
@@ -48,7 +66,7 @@ const SignUpPage = () => {
 
                 <button
                     type="submit"
-                    onClick={onSubmit({email,password})}
+                    onClick={onSubmit}
                 >
                     Sign up
                 </button>
