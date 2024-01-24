@@ -1,4 +1,5 @@
 // Import the functions you need from the SDKs you need
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 import { initializeApp } from "firebase/app";
