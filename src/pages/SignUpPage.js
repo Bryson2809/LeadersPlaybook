@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase";
@@ -70,12 +70,12 @@ const SignUpPage = () => {
                 </button>
             </form>
 
-            {/* <p>
+            <p>
                 Already have an account?{' '}
-                <NavLink to="/login">
+                <NavLink to="/">
                     Sign in
                 </NavLink>
-            </p> */}
+            </p>
         </div>
     )
 }
