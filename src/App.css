@@ -95,3 +95,8 @@ h3 {
 .coverPhoto {
     text-align: center;
 }
+
+.datePicker {
+    margin: 10px;
+    text-align: center;
+}

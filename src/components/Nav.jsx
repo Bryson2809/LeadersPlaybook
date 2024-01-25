@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import HamburgerNavigator from "./HamburgerNavigator";
 
@@ -8,7 +8,7 @@ const Nav = () => {
         <div className="navigation">
             <ul>
                 <li>
-                    <Link className ="link" to="/">Home</Link>
+                    <Link className ="link" to="/home">Home</Link>
                 </li>
                 <li>
                     <Link className="link" to="/playbook">Playbooks</Link>

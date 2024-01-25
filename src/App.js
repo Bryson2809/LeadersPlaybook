@@ -41,8 +41,6 @@ import "./App.css";
 const App = () => {
     return (
       <div>
-        <Nav />
-        <HeaderCard />
         <Routes>
           <Route path="/" exact Component={LogInPage} />
           <Route path="/home" Component={HomePage} />

@@ -5,6 +5,8 @@ import { useNavigate, NavLink } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase";
 
+import { register } from "../crud/UserOperations";
+
 const SignUpPage = () => {
     const navigate = useNavigate();
 
@@ -19,7 +21,7 @@ const SignUpPage = () => {
               // Signed in
               const user = userCredential.user;
               console.log(user);
-              navigate("/login")
+              navigate("/")
               // ...
           })
           .catch((error) => {
