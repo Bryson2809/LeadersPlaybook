@@ -7,6 +7,7 @@ import {
     signOut,
     createUserWithEmailAndPassword
   } from "firebase/auth";
+  import { getFirestore } from "firebase/firestore";
 //   import {
 //     collection,
 //     getFirestore,
@@ -34,7 +35,7 @@ import {
   export const app = initializeApp(firebaseConfig);
   export const auth = getAuth(app);
   //const analytics = getAnalytics(app);
-  //const db = getFirestore(app);
+  export const db = getFirestore(app);
 
   export const register = async ({ email, password }) => {
     try {
