@@ -4,8 +4,9 @@ import { useNavigate, NavLink } from "react-router-dom";
 
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { doc, setDoc } from "firebase/firestore";
 
-import { register } from "../crud/UserOperations";
+import { db } from "../utils/firebase";
 
 const SignUpPage = () => {
     const navigate = useNavigate();
@@ -30,6 +31,18 @@ const SignUpPage = () => {
               console.log(errorCode, errorMessage);
               // ..
           });
+
+          const username = email.split('@');
+
+          try {
+            await setDoc(doc(db, "users", username[0]), {
+                username: username[0],
+                email: email,
+                password: password
+            });
+          } catch (error) {
+            console.error(error);
+          }
     }
 
     return (
