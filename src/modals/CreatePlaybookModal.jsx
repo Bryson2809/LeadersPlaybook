@@ -4,6 +4,11 @@ import { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 
 const CreatePlaybookModal = (props) => {
+    const [area, setArea] = useState("General");
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
+    
+
     if (!props.show) {
         return null;
     }
@@ -18,7 +23,7 @@ const CreatePlaybookModal = (props) => {
                     This is the modal content
                 </div>
                 <div className="modal-footer">
-                    <button className="button" onClick={props.onClose}>Close</button>
+                    <button className="button" onClick={props.onClose}>Cancel</button>
                 </div>
             </div>
         </div>

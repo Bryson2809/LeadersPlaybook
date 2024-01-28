@@ -5,6 +5,7 @@ import { useNavigate, NavLink } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { doc, setDoc } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 import { db } from "../utils/firebase";
 
