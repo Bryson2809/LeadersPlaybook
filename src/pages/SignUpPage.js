@@ -48,7 +48,8 @@ const SignUpPage = () => {
             await setDoc(doc(db, "users", username[0]), {
                 username: username,
                 email: email,
-                password: password
+                password: password,
+                uid: currentUser.uid
             });
           } catch (error) {
             console.error(error);
