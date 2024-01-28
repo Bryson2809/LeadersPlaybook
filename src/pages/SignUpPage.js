@@ -35,8 +35,8 @@ const SignUpPage = () => {
           const username = email.split('@');
 
           try {
-            await setDoc(doc(db, "users", email[0]), {
-                username: username,
+            await setDoc(doc(db, "users", username[0]), {
+                username: username[0],
                 email: email,
                 password: password
             });
