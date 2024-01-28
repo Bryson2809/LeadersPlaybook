@@ -4,6 +4,7 @@ import { useNavigate, NavLink } from "react-router-dom";
 
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { updateProfile } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 
 import { db } from "../utils/firebase";
@@ -13,6 +14,7 @@ const SignUpPage = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] =  useState("");
+    const [username, setUsername] = useState("");
 
     const onSubmit = async (e) => {
         e.preventDefault()
@@ -32,11 +34,18 @@ const SignUpPage = () => {
               // ..
           });
 
-          const username = email.split('@');
+        const currentUser = auth.currentUser;
+        updateProfile(currentUser, {
+            displayName: username
+        }).then(() => {
+            console.log("Profile updated!");
+        }).catch((error) => {
+            console.error(error);
+        });
 
-          try {
+        try {
             await setDoc(doc(db, "users", username[0]), {
-                username: username[0],
+                username: username,
                 email: email,
                 password: password
             });
@@ -51,7 +60,7 @@ const SignUpPage = () => {
             <form>
                 <div>
                     <label htmlFor="email address">
-                        Email Address
+                        Email Address{' '}
                     </label>
                     <input
                         type="email"
@@ -65,7 +74,21 @@ const SignUpPage = () => {
 
                 <div>
                     <label htmlFor="password">
-                        password
+                        Username{' '}
+                    </label>
+                    <input 
+                        type="username"
+                        label="Username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                        placeholder="Username"
+                    />
+                </div>
+
+                <div>
+                    <label htmlFor="password">
+                        password{' '}
                     </label>
                     <input 
                         type="password"
