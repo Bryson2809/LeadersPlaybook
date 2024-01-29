@@ -6,7 +6,8 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { updateProfile } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
+
+import { createUser } from "../crud/UserOperations";
 
 import { db } from "../utils/firebase";
 
@@ -16,6 +17,8 @@ const SignUpPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] =  useState("");
     const [username, setUsername] = useState("");
+
+    let newUser = true;
 
     const onSubmit = async (e) => {
         e.preventDefault()
@@ -32,28 +35,32 @@ const SignUpPage = () => {
               const errorCode = error.code;
               const errorMessage = error.message;
               console.log(errorCode, errorMessage);
+              newUser = false;
               // ..
           });
 
-        const currentUser = auth.currentUser;
-        updateProfile(currentUser, {
-            displayName: username
-        }).then(() => {
-            console.log("Profile updated!");
-        }).catch((error) => {
-            console.error(error);
-        });
-
-        try {
-            await setDoc(doc(db, "users", username[0]), {
-                username: username,
-                email: email,
-                password: password,
-                uid: currentUser.uid
+        if (newUser) {
+            const currentUser = auth.currentUser;
+            updateProfile(currentUser, {
+                displayName: username
+            }).then(() => {
+                console.log("Profile updated!");
+            }).catch((error) => {
+                console.error(error);
             });
-          } catch (error) {
-            console.error(error);
-          }
+
+            try {
+                await setDoc(doc(db, "users", username), {
+                    username: username,
+                    email: email,
+                    password: password,
+                    uid: currentUser.uid,
+                    permissionLevel: "team member"
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        }
     }
 
     return (
