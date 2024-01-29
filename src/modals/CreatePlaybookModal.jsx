@@ -3,8 +3,9 @@ import { useState, useEffect } from "react";
 
 import DatePicker from "react-datepicker";
 
-import { auth } from "../utils/firebase";
-import { getUsername, createPlaybook } from "../crud/UserOperations";
+import { auth, db } from "../utils/firebase";
+
+import { doc, getDoc, addDoc, collection } from "firebase/firestore";
 
 const CreatePlaybookModal = (props) => {
     const [area, setArea] = useState("General");
@@ -14,12 +15,26 @@ const CreatePlaybookModal = (props) => {
     const [username, setUsername] = useState("");
     const [playbookName, setPlaybookName] = useState("");
 
-    useEffect(() => {
-        const getAttributes = async () => {
-            setUsername(await getUsername());
+    const onSubmit = async () => {
+        const currentUser = auth.currentUser;
+        const docRef = doc(db, "users", currentUser.displayName);
+        const docSnap = await getDoc(docRef);
+
+        try {
+            if (docSnap.exists()) {
+            const colRef = collection(docRef, "playbooks");
+            addDoc(colRef, {
+                playbookName: playbookName,
+                area: area,
+                endDate: endDate,
+                createdOn: currentDate
+                });
+            }
+        } catch(error) {
+            console.log(error);
         }
-        getAttributes();
-    });
+        props.onClose();
+    }
     
 
     if (!props.show) {
@@ -63,28 +78,14 @@ const CreatePlaybookModal = (props) => {
                         </div>
                     </form>
 
-                        {/* <div>
-                            <label htmlFor="end date">
-                                End Date{' '}
-                            </label>
-                            <input
-                                type="playbook name"
-                                label="Playbook Name"
-                                value={playbookName}
-                                onChange={(e) => setPlaybookName(e.target.value)}
-                                required
-                                placeholder="Playbook Name"
-                            />
-
-                        </div> */}
                     <div className="datePicker">
                         <p>End Date{' '}</p>
-                        <DatePicker selected={startDate} onChange={(date) => setEndDate(date)} />
+                        <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
                     </div>
                 </div>
                 <div className="modal-footer">
                     <button className="button" onClick={props.onClose}>Cancel</button>
-                    <button className="button" onClick={async () => await createPlaybook("playbook name", endDate, "test")}>Create Playbook</button>
+                    <button className="button" onClick={onSubmit}>Create Playbook</button>
                 </div>
             </div>
         </div>

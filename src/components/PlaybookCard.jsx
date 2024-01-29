@@ -11,8 +11,6 @@ const PlaybookCard = () => {
     const [endDate, setEndDate] = useState(new Date());
     const [showCreatePlaybookModal, setShowCreatePlaybookModal] = useState(false);
 
-    const dialog = document.getElementById("myDialog")
-
     return (
         // <div>
         //     <div className="datePicker">

@@ -39,7 +39,4 @@ import {
   } catch(error) {
     console.log(error);
   }
-
-  
-
  }
