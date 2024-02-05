@@ -139,3 +139,9 @@ h3 {
     margin-left: 15%;
     margin-right: 15%;
 }
+
+.detailedPlaybookPageHeader {
+    text-align: center;
+    background-color: lightgray;
+    border: 2px solid black;
+}

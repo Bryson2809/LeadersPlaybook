@@ -1,12 +1,11 @@
 import React from 'react';
 import { useState, useRef, useEffect } from "react";
-
-import DatePicker from 'react-datepicker';
-
-import CreatePlaybookModal from "../modals/CreatePlaybookModal";
+import { useNavigate } from "react-router-dom";
 
 const PlaybookCard = (props) => {
-    const [timer, setTimer] = useState("Timer");
+    const Navigate = useNavigate();
+
+    const [timer, setTimer] = useState("00:00:00:00");
 
     const Ref = useRef(null);
 
@@ -66,7 +65,7 @@ const PlaybookCard = (props) => {
     }, []);
  
     return (
-        <div className="playbookCard">
+        <div className="playbookCard" onClick={() => Navigate("/detailedPlaybook")}>
             <h1>Playbook Name: {props.name}</h1>
             <h3>Area: {props.area}</h3>
             <h2>Time Remaining: {timer}</h2>

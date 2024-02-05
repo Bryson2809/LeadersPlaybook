@@ -10,9 +10,7 @@ import HomePage from "./pages/HomePage";
 import SchedulePage from "./pages/SchedulePage";
 import SignUpPage from "./pages/SignUpPage";
 import LogInPage from "./pages/LogInPage";
-
-import HeaderCard from "./components/HeaderCard";
-import Nav from "./components/Nav";
+import DetailedPlaybookPage from "./pages/DetailedPlaybookPage";
 
 import "./App.css";
 
@@ -49,6 +47,7 @@ const App = () => {
           <Route path="/playbook" Component={PlaybookPage} />
           <Route path="/schedule" Component={SchedulePage} />
           <Route path="/signup" Component={SignUpPage} />
+          <Route path="/detailedPlaybook" Component={DetailedPlaybookPage} />
         </Routes>
        </div>
     );
