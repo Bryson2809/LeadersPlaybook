@@ -7,8 +7,6 @@ import { auth } from "../utils/firebase";
 import { updateProfile } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 
-import { createUser } from "../crud/UserOperations";
-
 import { db } from "../utils/firebase";
 
 const SignUpPage = () => {
@@ -55,7 +53,7 @@ const SignUpPage = () => {
                     email: email,
                     password: password,
                     uid: currentUser.uid,
-                    permissionLevel: "team member"
+                    permissionLevel: 0
                 });
             } catch (error) {
                 console.error(error);

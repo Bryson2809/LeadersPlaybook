@@ -16,6 +16,8 @@ import Nav from "./components/Nav";
 
 import "./App.css";
 
+import "react-datepicker/dist/react-datepicker.module.css"
+
 // import register from "./utils/firebase";
 // import { firebaseConfig } from "./utils/firebase";
 

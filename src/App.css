@@ -131,3 +131,11 @@ h3 {
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
 }
+
+.playbookCard {
+    text-align: center;
+    background-color: lightgray;
+    border-radius: 25px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
