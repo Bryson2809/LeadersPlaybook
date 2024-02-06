@@ -31,7 +31,7 @@ const PlaybookPage = () => {
     useEffect(() => {
         mapPlaybooks();
         console.log(playbooks);
-    });
+    }, [showCreatePlaybookModal]);
 
     const listPlabooks = playbooks.map((playbook) => 
         <PlaybookCard name={playbook.playbookName} area={playbook.area} endDate={playbook.endDate.toDate()} />

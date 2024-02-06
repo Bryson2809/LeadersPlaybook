@@ -6,6 +6,7 @@ const PlaybookCard = (props) => {
     const Navigate = useNavigate();
 
     const [timer, setTimer] = useState("00:00:00:00");
+    const [show, setShow] = useState(false);
 
     const Ref = useRef(null);
 
@@ -65,11 +66,22 @@ const PlaybookCard = (props) => {
     }, []);
  
     return (
-        <div className="playbookCard" onClick={() => Navigate("/detailedPlaybook")}>
+        <div className="playbookCard">
             <h1>Playbook Name: {props.name}</h1>
             <h3>Area: {props.area}</h3>
             <h2>Time Remaining: {timer}</h2>
-        </div>
+            {show ? 
+                <div>
+                    <h1>Playbook expanded</h1>
+                    <button onClick={() => setShow(false)}>Close</button>
+                </div>
+            :
+                <div>
+                    <button onClick={() => setShow(true)}>Expand Playbook</button>
+                </div>
+            }
+        </div>    
+        
     );
 }
 
