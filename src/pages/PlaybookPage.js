@@ -41,11 +41,10 @@ const PlaybookPage = () => {
         <div>
             <Nav />
             {listPlabooks}
-            <div>
+            <div className="playbookPageFooter">
                 <button onClick={() => setShowCreatePlaybookModal(true)}>Create Playbook</button>
                 <CreatePlaybookModal show={showCreatePlaybookModal} onClose={() => setShowCreatePlaybookModal(false)}/>
             </div>
-            Playbooks Page
         </div>
     );
 }
