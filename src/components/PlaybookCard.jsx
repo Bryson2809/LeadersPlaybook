@@ -1,9 +1,7 @@
 import React from 'react';
 import { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 const PlaybookCard = (props) => {
-    const Navigate = useNavigate();
 
     const [timer, setTimer] = useState("00:00:00:00");
     const [show, setShow] = useState(false);
