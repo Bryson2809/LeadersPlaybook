@@ -61,13 +61,14 @@ const PlaybookCard = (props) => {
 
     useEffect(() => {
         clearTimer(props.endDate);
-    }, []);
+    });
  
     return (
         <div className="playbookCard">
             <h1>Playbook Name: {props.name}</h1>
             <h3>Area: {props.area}</h3>
             <h2>Time Remaining: {timer}</h2>
+            <h3>Date: {props.endDate.toString()}</h3>
             {show ? 
                 <div>
                     <h1>Playbook expanded</h1>
