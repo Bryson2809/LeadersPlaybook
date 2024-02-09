@@ -26,11 +26,25 @@ const PlaybookPage = () => {
             temp.push(doc.data());
         });
         setPlaybooks(temp);
+        // const usersRef = collection(db, "users");
+        // let q = query(usersRef);
+        // let querySnapshot = await getDocs(q);
+        // const temp = [];
+        // querySnapshot.forEach(async (doc) => {
+        //     const playbookRef = collection(doc.ref, "playbooks");
+        //     q = query(playbookRef);
+        //     querySnapshot = await getDocs(q);
+        //     querySnapshot.forEach((doc) => {
+        //         console.log(doc.data());
+        //         temp.push(doc.data());
+        //     });
+        // });
+        // setPlaybooks(temp);
     }
 
     useEffect(() => {
         mapPlaybooks();
-        console.log(playbooks);
+        //console.log(playbooks);
     }, [showCreatePlaybookModal]);
 
     const listPlabooks = playbooks.map((playbook) => 
