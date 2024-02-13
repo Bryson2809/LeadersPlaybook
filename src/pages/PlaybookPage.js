@@ -47,14 +47,14 @@ const PlaybookPage = () => {
         //console.log(playbooks);
     }, [showCreatePlaybookModal]);
 
-    const listPlabooks = playbooks.map((playbook) => 
+    const listPlaybooks = playbooks.map((playbook) => 
         <PlaybookCard name={playbook.playbookName} area={playbook.area} endDate={playbook.endDate.toDate()} />
     );
 
     return (
         <div>
             <Nav />
-            {listPlabooks}
+            {listPlaybooks}
             <div className="playbookPageFooter">
                 <button onClick={() => setShowCreatePlaybookModal(true)}>Create Playbook</button>
                 <CreatePlaybookModal show={showCreatePlaybookModal} onClose={() => setShowCreatePlaybookModal(false)}/>
