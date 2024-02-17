@@ -5,7 +5,7 @@ import DatePicker from "react-datepicker";
 
 import { auth, db } from "../utils/firebase";
 
-import { doc, getDoc, addDoc, collection } from "firebase/firestore";
+import { doc, getDoc, addDoc, collection, setDoc } from "firebase/firestore";
 
 const CreatePlaybookModal = (props) => {
     const [area, setArea] = useState("General");
@@ -16,20 +16,27 @@ const CreatePlaybookModal = (props) => {
     const [playbookName, setPlaybookName] = useState("");
 
     const onSubmit = async () => {
-        const currentUser = auth.currentUser;
-        const docRef = doc(db, "users", currentUser.displayName);
-        const docSnap = await getDoc(docRef);
+        const currentUser = auth.currentUser.displayName;
 
         try {
-            if (docSnap.exists()) {
-            const colRef = collection(docRef, "playbooks");
-            addDoc(colRef, {
+            // if (docSnap.exists()) {
+            // const colRef = collection(docRef, "playbooks");
+            // addDoc(colRef, {
+            //     playbookName: playbookName,
+            //     area: area,
+            //     endDate: endDate,
+            //     createdOn: currentDate
+            //     });
+            // }
+            const colRef = collection(db, "playbooks");
+            await addDoc(colRef, {
                 playbookName: playbookName,
                 area: area,
                 endDate: endDate,
-                createdOn: currentDate
-                });
-            }
+                createdOn: currentDate,
+                createdBy: currentUser,
+            });
+
         } catch(error) {
             console.log(error);
         }
