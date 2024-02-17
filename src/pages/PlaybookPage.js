@@ -15,10 +15,18 @@ const PlaybookPage = () => {
     const [playbooks, setPlaybooks] = useState([]);
 
     const mapPlaybooks = async () => {
-        const currentUser = auth.currentUser;
-        const docRef = doc(db, "users", currentUser.displayName);
-        const docSnap = await getDoc(docRef);
-        const playbookRef = collection(docRef, "playbooks");
+        // const currentUser = auth.currentUser;
+        // const docRef = doc(db, "users", currentUser.displayName);
+        // const docSnap = await getDoc(docRef);
+        // const playbookRef = collection(docRef, "playbooks");
+        // const q = query(playbookRef);
+        // const querySnapshot = await getDocs(q);
+        // const temp = [];
+        // querySnapshot.forEach((doc) => {
+        //     temp.push(doc.data());
+        // });
+        // setPlaybooks(temp);
+        const playbookRef = collection(db, "playbooks");
         const q = query(playbookRef);
         const querySnapshot = await getDocs(q);
         const temp = [];
