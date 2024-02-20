@@ -75,20 +75,20 @@ const PlaybookCard = (props) => {
             {show ? 
                 <div>
                     <div className="a3-row">
-                        <PlaybookBox boxName="Problem Description" />
-                        <PlaybookBox boxName="Counter Measures" />
+                        <PlaybookBox boxName="Problem Description" dataName="problemDescriptionBox" playbookId={props.playbookId} />
+                        <PlaybookBox boxName="Counter Measures" dataName="counterMeasuresBox" playbookId={props.playbookId} />
                     </div>
                     <div className="a3-row">
-                        <PlaybookBox boxName="Current State" />
-                        <PlaybookBox boxName="Implementation Plan" />
+                        <PlaybookBox boxName="Current State" dataname="currentStateBox" playbookId={props.playbookId} />
+                        <PlaybookBox boxName="Implementation Plan" dataName="implementationPlanBox" playbookId={props.playbookId} />
                     </div>
                     <div className="a3-row">
-                        <PlaybookBox boxName="Target Improvement" />
-                        <PlaybookBox boxName="Check Results / Verify" />
+                        <PlaybookBox boxName="Target Improvement" dataName="targetImprovementBox" playbookId={props.playbookId} />
+                        <PlaybookBox boxName="Check Results / Verify" dataName="verifyBox" playbookId={props.PlaybookId} />
                     </div>
                     <div className="a3-row">
-                        <PlaybookBox boxName="Root Cause Analysis" />
-                        <PlaybookBox boxName="Update Standard Work" />
+                        <PlaybookBox boxName="Root Cause Analysis" dataName="rootCauseAnalysisBox" playbookId={props.playbookId} />
+                        <PlaybookBox boxName="Update Standard Work" dataName="updateStandardWorkBox" playbookId={props.playbookId} />
                     </div>
                     <button onClick={() => setShow(false)}>Close</button>
                 </div>

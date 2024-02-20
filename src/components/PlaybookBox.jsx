@@ -10,7 +10,7 @@ const PlaybookBox = (props) => {
 
     return (
         <>
-            <TextInputModal show={showTextInputModal} onClose={() => setShowTextInputModal(false)} boxName={props.boxName} />
+            <TextInputModal show={showTextInputModal} onClose={() => setShowTextInputModal(false)} boxName={props.boxName} dataName={props.dataName} playbookId={props.playbookId} />
             <div className="a3-box" onClick={() => setShowTextInputModal(true)}>
                 <div className="a3-box-header">
                     <h3>{props.boxName}</h3>
