@@ -21,7 +21,7 @@ const PlaybookPage = () => {
         const temp = [];
         querySnapshot.forEach((doc) => {
             console.log(doc.id);
-            temp.push(doc.data());
+            temp.push(doc);
         });
         setPlaybooks(temp);
     }
@@ -32,7 +32,7 @@ const PlaybookPage = () => {
     }, [showCreatePlaybookModal]);
 
     const listPlaybooks = playbooks.map((playbook) => 
-        <PlaybookCard name={playbook.playbookName} area={playbook.area} endDate={playbook.endDate.toDate()} currentPlaybook={playbook.id} playbookId={playbook.id} />
+        <PlaybookCard name={playbook.data().playbookName} area={playbook.data().area} endDate={playbook.data().endDate.toDate()} currentPlaybook={playbook.id} playbookId={playbook.id} />
     );
 
     return (

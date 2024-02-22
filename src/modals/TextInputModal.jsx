@@ -7,6 +7,7 @@ import { doc, collection, getDoc, addDoc, updateDoc } from "firebase/firestore";
 
 const TextInputModal = (props) => {
     const [text, setText] = useState(`Enter ${props.boxName.toLowerCase()} here`);
+    const test = "test";
 
 
     const onSubmit = async () => {
@@ -14,7 +15,7 @@ const TextInputModal = (props) => {
 
         if (props.dataName === "problemDescriptionBox")  {
             await updateDoc(playbookBoxRef, {
-                problemDescription: text
+                problemDescriptionBox: "done"
             });
         }
         else if (props.dataName === "counterMeasuresBox") {

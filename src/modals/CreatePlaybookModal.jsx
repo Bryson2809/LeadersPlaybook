@@ -35,6 +35,14 @@ const CreatePlaybookModal = (props) => {
                 endDate: endDate,
                 createdOn: currentDate,
                 createdBy: currentUser,
+                problemDescription: null,
+                counterMeasuresBox: null,
+                currentStateBox: null,
+                implementationPlanBox: null,
+                targetImprovementBox: null,
+                verifyBox: null,
+                rootCauseAnalysisBox: null,
+                updateStandardWorkBox: null,
             });
 
         } catch(error) {

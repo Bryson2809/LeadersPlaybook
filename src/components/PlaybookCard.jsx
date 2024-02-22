@@ -72,6 +72,7 @@ const PlaybookCard = (props) => {
             <h3>Area: {props.area}</h3>
             <p>Due By: {props.endDate.toString()}</p>
             <h2>Time Remaining: {timer}</h2>
+            <h2>Playbook id: {props.playbookId}</h2>
             {show ? 
                 <div>
                     <div className="a3-row">
