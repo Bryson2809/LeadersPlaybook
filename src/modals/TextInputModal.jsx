@@ -1,21 +1,27 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import $ from "jquery";
 
 import { auth, db } from "../utils/firebase";
 
 import { doc, collection, getDoc, addDoc, updateDoc } from "firebase/firestore";
 
 const TextInputModal = (props) => {
-    const [text, setText] = useState(`Enter ${props.boxName.toLowerCase()} here`);
-    const test = "test";
-
+    const [text, setText] = useState(props.problemDescriptionBox === null ? `Enter ${props.boxName.toLowerCase()} here` : props.problemDescriptionBox);
+    
+    const handleChange = (e) => {
+        setText(e.target.value);
+    }
 
     const onSubmit = async () => {
         const playbookBoxRef = doc(db, "playbooks", props.playbookId);
+        var temp = $("#input").val();
+        console.log(temp);
 
         if (props.dataName === "problemDescriptionBox")  {
+            console.log(text);
             await updateDoc(playbookBoxRef, {
-                problemDescriptionBox: "done"
+                problemDescriptionBox: text
             });
         }
         else if (props.dataName === "counterMeasuresBox") {
@@ -58,10 +64,6 @@ const TextInputModal = (props) => {
         }
     }
 
-    const fetchData = async () => {
-        
-    }
-
     if (!props.show) {
         return null;
     }
@@ -73,13 +75,16 @@ const TextInputModal = (props) => {
                     <h4 className="modal-title">{props.boxName}</h4>
                 </div>
                 <div classname="modal-body">
-                    <textarea 
+                    <form id="textInputForm">
+                        <textarea 
+                        id="input"
                         name="playbookBoxContent"
-                        placeholder={text}
                         rows={10}
                         cols={60}
-                        onChange={(e) => setText(e)}
-                    />
+                        value={text}
+                        onChange={handleChange}
+                        />
+                    </form>
                 </div>
                 <div className="modal-footer">
                     <button className="submit_button" onClick={onSubmit}>Submit</button>

@@ -10,12 +10,12 @@ const PlaybookBox = (props) => {
 
     return (
         <>
-            <TextInputModal show={showTextInputModal} onClose={() => setShowTextInputModal(false)} boxName={props.boxName} dataName={props.dataName} playbookId={props.playbookId} />
+            <TextInputModal show={showTextInputModal} onClose={() => setShowTextInputModal(false)} boxName={props.boxName} dataName={props.dataName} playbookId={props.playbookId} text={props.text} />
             <div className="a3-box" onClick={() => setShowTextInputModal(true)}>
                 <div className="a3-box-header">
                     <h3>{props.boxName}</h3>
                 </div>
-                <p className="a3-box-text"></p>
+                <p className="a3-box-text">{props.displayedText}</p>
             </div>
         </>
     );

@@ -76,7 +76,7 @@ const PlaybookCard = (props) => {
             {show ? 
                 <div>
                     <div className="a3-row">
-                        <PlaybookBox boxName="Problem Description" dataName="problemDescriptionBox" playbookId={props.playbookId} />
+                        <PlaybookBox boxName="Problem Description" dataName="problemDescriptionBox" playbookId={props.playbookId} displayedText={"text"} />
                         <PlaybookBox boxName="Counter Measures" dataName="counterMeasuresBox" playbookId={props.playbookId} />
                     </div>
                     <div className="a3-row">
