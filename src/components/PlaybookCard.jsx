@@ -63,33 +63,33 @@ const PlaybookCard = (props) => {
     };
 
     useEffect(() => {
-        clearTimer(props.endDate);
+        clearTimer(props.playbook.data().endDate.toDate());
     });
  
     return (
         <div className="playbookCard">
-            <h1>Playbook Name: {props.name}</h1>
-            <h3>Area: {props.area}</h3>
+            <h1>Playbook Name: {props.playbook.data().playbookName}</h1>
+            <h3>Area: {props.playbook.data().area}</h3>
             <p>Due By: {props.endDate.toString()}</p>
             <h2>Time Remaining: {timer}</h2>
-            <h2>Playbook id: {props.playbookId}</h2>
+            <h2>Playbook id: {props.playbook.id}</h2>
             {show ? 
                 <div>
                     <div className="a3-row">
-                        <PlaybookBox boxName="Problem Description" dataName="problemDescriptionBox" playbookId={props.playbookId} displayedText={"text"} />
-                        <PlaybookBox boxName="Counter Measures" dataName="counterMeasuresBox" playbookId={props.playbookId} />
+                        <PlaybookBox boxName="Problem Description" dataName="problemDescriptionBox" playbookId={props.playbook.id} text={props.playbook.data().problemDescriptionBox} />
+                        <PlaybookBox boxName="Counter Measures" dataName="counterMeasuresBox" playbookId={props.playbookId} text={props.playbook.data().counterMeasuresBox}/>
                     </div>
                     <div className="a3-row">
-                        <PlaybookBox boxName="Current State" dataname="currentStateBox" playbookId={props.playbookId} />
-                        <PlaybookBox boxName="Implementation Plan" dataName="implementationPlanBox" playbookId={props.playbookId} />
+                        <PlaybookBox boxName="Current State" dataname="currentStateBox" playbookId={props.playbookId} text={props.playbook.data().currentStateBox} />
+                        <PlaybookBox boxName="Implementation Plan" dataName="implementationPlanBox" playbookId={props.playbookId} text={props.playbook.data().implementationPlanBox} />
                     </div>
                     <div className="a3-row">
-                        <PlaybookBox boxName="Target Improvement" dataName="targetImprovementBox" playbookId={props.playbookId} />
-                        <PlaybookBox boxName="Check Results / Verify" dataName="verifyBox" playbookId={props.PlaybookId} />
+                        <PlaybookBox boxName="Target Improvement" dataName="targetImprovementBox" playbookId={props.playbookId} text={props.playbook.data().targetImprovementBox} />
+                        <PlaybookBox boxName="Check Results / Verify" dataName="verifyBox" playbookId={props.playbookId} text={props.playbook.data().verifyBox} />
                     </div>
                     <div className="a3-row">
-                        <PlaybookBox boxName="Root Cause Analysis" dataName="rootCauseAnalysisBox" playbookId={props.playbookId} />
-                        <PlaybookBox boxName="Update Standard Work" dataName="updateStandardWorkBox" playbookId={props.playbookId} />
+                        <PlaybookBox boxName="Root Cause Analysis" dataName="rootCauseAnalysisBox" playbookId={props.playbookId} text={props.playbook.data().rootCauseAnalysisBox} />
+                        <PlaybookBox boxName="Update Standard Work" dataName="updateStandardWorkBox" playbookId={props.playbookId} text={props.playbook.data().updateStandardWorkBox} />
                     </div>
                     <button onClick={() => setShow(false)}>Close</button>
                 </div>

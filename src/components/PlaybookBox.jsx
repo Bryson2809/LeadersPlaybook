@@ -15,7 +15,7 @@ const PlaybookBox = (props) => {
                 <div className="a3-box-header">
                     <h3>{props.boxName}</h3>
                 </div>
-                <p className="a3-box-text">{props.displayedText}</p>
+                <p className="a3-box-text">{props.text}</p>
             </div>
         </>
     );

@@ -32,7 +32,7 @@ const PlaybookPage = () => {
     }, [showCreatePlaybookModal]);
 
     const listPlaybooks = playbooks.map((playbook) => 
-        <PlaybookCard name={playbook.data().playbookName} area={playbook.data().area} endDate={playbook.data().endDate.toDate()} currentPlaybook={playbook.id} playbookId={playbook.id} />
+        <PlaybookCard name={playbook.data().playbookName} area={playbook.data().area} endDate={playbook.data().endDate.toDate()} currentPlaybook={playbook.id} playbookId={playbook.id} playbook={playbook} />
     );
 
     return (
