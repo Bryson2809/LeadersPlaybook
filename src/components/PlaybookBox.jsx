@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 
-import { auth, db } from "../utils/firebase";
-import { query, collection, getDoc, where, doc } from "firebase/firestore";
+import { db } from "../utils/firebase";
+import { getDoc, doc } from "firebase/firestore";
 
 import TextInputModal from "../modals/TextInputModal";
 
