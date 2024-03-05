@@ -15,45 +15,34 @@ const PlaybookPage = () => {
     const [playbooks, setPlaybooks] = useState([]);
 
     const mapPlaybooks = async () => {
-        // const currentUser = auth.currentUser;
-        // const docRef = doc(db, "users", currentUser.displayName);
-        // const docSnap = await getDoc(docRef);
-        // const playbookRef = collection(docRef, "playbooks");
-        // const q = query(playbookRef);
-        // const querySnapshot = await getDocs(q);
-        // const temp = [];
-        // querySnapshot.forEach((doc) => {
-        //     temp.push(doc.data());
-        // });
-        // setPlaybooks(temp);
         const playbookRef = collection(db, "playbooks");
         const q = query(playbookRef);
         const querySnapshot = await getDocs(q);
         const temp = [];
         querySnapshot.forEach((doc) => {
-            temp.push(doc.data());
+            console.log(doc.id);
+            temp.push(doc);
         });
         setPlaybooks(temp);
     }
 
     useEffect(() => {
         mapPlaybooks();
-        console.log(playbooks);
+        //console.log(playbooks);
     }, [showCreatePlaybookModal]);
 
-    const listPlabooks = playbooks.map((playbook) => 
-        <PlaybookCard name={playbook.playbookName} area={playbook.area} endDate={playbook.endDate.toDate()} />
+    const listPlaybooks = playbooks.map((playbook) => 
+        <PlaybookCard name={playbook.data().playbookName} area={playbook.data().area} endDate={playbook.data().endDate.toDate()} currentPlaybook={playbook.id} playbookId={playbook.id} playbook={playbook} />
     );
 
     return (
         <div>
             <Nav />
-            {listPlabooks}
-            <div>
+            {listPlaybooks}
+            <div className="playbookPageFooter">
                 <button onClick={() => setShowCreatePlaybookModal(true)}>Create Playbook</button>
                 <CreatePlaybookModal show={showCreatePlaybookModal} onClose={() => setShowCreatePlaybookModal(false)}/>
             </div>
-            Playbooks Page
         </div>
     );
 }

@@ -1,9 +1,10 @@
 import React from 'react';
 import { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+
+import TextInputModal from '../modals/TextInputModal';
+import PlaybookBox from './PlaybookBox';
 
 const PlaybookCard = (props) => {
-    const Navigate = useNavigate();
 
     const [timer, setTimer] = useState("00:00:00:00");
     const [show, setShow] = useState(false);
@@ -62,17 +63,36 @@ const PlaybookCard = (props) => {
     };
 
     useEffect(() => {
-        clearTimer(props.endDate);
-    }, []);
+        clearTimer(props.playbook.data().endDate.toDate());
+    });
  
     return (
         <div className="playbookCard">
-            <h1>Playbook Name: {props.name}</h1>
-            <h3>Area: {props.area}</h3>
+            <h1>Playbook Name: {props.playbook.data().playbookName}</h1>
+            <h3>Area: {props.playbook.data().area}</h3>
+            <p>Due By: {props.endDate.toString()}</p>
             <h2>Time Remaining: {timer}</h2>
             {show ? 
                 <div>
-                    <h1>Playbook expanded</h1>
+                    <div className="a3-row">
+                        <PlaybookBox boxName="Problem Description" dataName="problemDescriptionBox" playbookId={props.playbook.id} text={props.playbook.data().problemDescriptionBox} playbook={props.playbook} />
+                        <PlaybookBox boxName="Counter Measures" dataName="counterMeasuresBox" playbookId={props.playbookId} text={props.playbook.data().counterMeasuresBox}/>
+                    </div>
+                    <div className="a3-row">
+                        <PlaybookBox boxName="Current State" dataName="currentStateBox" playbookId={props.playbookId} text={props.playbook.data().currentStateBox} />
+                        <PlaybookBox boxName="Implementation Plan" dataName="implementationPlanBox" playbookId={props.playbookId} text={props.playbook.data().implementationPlanBox} />
+                    </div>
+                    <div className="a3-row">
+                        <PlaybookBox boxName="Target Improvement" dataName="targetImprovementBox" playbookId={props.playbookId} text={props.playbook.data().targetImprovementBox} />
+                        <PlaybookBox boxName="Check Results / Verify" dataName="verifyBox" playbookId={props.playbookId} text={props.playbook.data().verifyBox} />
+                    </div>
+                    <div className="a3-row">
+                        <PlaybookBox boxName="Root Cause Analysis" dataName="rootCauseAnalysisBox" playbookId={props.playbookId} text={props.playbook.data().rootCauseAnalysisBox} />
+                        <PlaybookBox boxName="Update Standard Work" dataName="updateStandardWorkBox" playbookId={props.playbookId} text={props.playbook.data().updateStandardWorkBox} />
+                    </div>
+                    <div className="a3-row">
+                        <PlaybookBox boxName="Notes" dataName="notes" playbookId={props.playbookId} text={props.playbook.data().notes} />
+                    </div>
                     <button onClick={() => setShow(false)}>Close</button>
                 </div>
             :
