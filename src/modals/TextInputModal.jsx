@@ -58,6 +58,11 @@ const TextInputModal = (props) => {
                 updateStandardWorkBox: text,
             })
         }
+        else if (props.dataName === "notes") {
+            await updateDoc(playbookBoxRef, {
+                notes: text,
+            })
+        }
         else {
             console.log("Not a valid box");
         }

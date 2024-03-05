@@ -90,6 +90,9 @@ const PlaybookCard = (props) => {
                         <PlaybookBox boxName="Root Cause Analysis" dataName="rootCauseAnalysisBox" playbookId={props.playbookId} text={props.playbook.data().rootCauseAnalysisBox} />
                         <PlaybookBox boxName="Update Standard Work" dataName="updateStandardWorkBox" playbookId={props.playbookId} text={props.playbook.data().updateStandardWorkBox} />
                     </div>
+                    <div className="a3-row">
+                        <PlaybookBox boxName="Notes" dataName="notes" playbookId={props.playbookId} text={props.playbook.data().notes} />
+                    </div>
                     <button onClick={() => setShow(false)}>Close</button>
                 </div>
             :

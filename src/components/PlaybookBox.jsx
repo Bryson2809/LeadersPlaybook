@@ -28,6 +28,8 @@ const PlaybookBox = (props) => {
             setText(docSnap.data().rootCauseAnalysisBox);
         else if (props.dataName === "updateStandardWorkBox")
             setText(docSnap.data().updateStandardWorkBox);
+        else if (props.dataName === "notes")
+            setText(docSnap.data().notes);
         else 
             console.log("Not a valid box");
     }
