@@ -13,6 +13,7 @@ const TextInputModal = (props) => {
         setText(e.target.value);
     }
 
+    //Submit changed text to db
     const onSubmit = async () => {
         const playbookBoxRef = doc(db, "playbooks", props.playbookId);
         var temp = $("#input").val();
