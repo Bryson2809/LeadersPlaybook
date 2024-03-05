@@ -16,7 +16,6 @@ const TextInputModal = (props) => {
     const onSubmit = async () => {
         const playbookBoxRef = doc(db, "playbooks", props.playbookId);
         var temp = $("#input").val();
-        console.log(temp);
 
         if (props.dataName === "problemDescriptionBox")  {
             console.log(text);
@@ -62,6 +61,7 @@ const TextInputModal = (props) => {
         else {
             console.log("Not a valid box");
         }
+        props.onClose();
     }
 
     if (!props.show) {

@@ -72,15 +72,14 @@ const PlaybookCard = (props) => {
             <h3>Area: {props.playbook.data().area}</h3>
             <p>Due By: {props.endDate.toString()}</p>
             <h2>Time Remaining: {timer}</h2>
-            <h2>Playbook id: {props.playbook.id}</h2>
             {show ? 
                 <div>
                     <div className="a3-row">
-                        <PlaybookBox boxName="Problem Description" dataName="problemDescriptionBox" playbookId={props.playbook.id} text={props.playbook.data().problemDescriptionBox} />
+                        <PlaybookBox boxName="Problem Description" dataName="problemDescriptionBox" playbookId={props.playbook.id} text={props.playbook.data().problemDescriptionBox} playbook={props.playbook} />
                         <PlaybookBox boxName="Counter Measures" dataName="counterMeasuresBox" playbookId={props.playbookId} text={props.playbook.data().counterMeasuresBox}/>
                     </div>
                     <div className="a3-row">
-                        <PlaybookBox boxName="Current State" dataname="currentStateBox" playbookId={props.playbookId} text={props.playbook.data().currentStateBox} />
+                        <PlaybookBox boxName="Current State" dataName="currentStateBox" playbookId={props.playbookId} text={props.playbook.data().currentStateBox} />
                         <PlaybookBox boxName="Implementation Plan" dataName="implementationPlanBox" playbookId={props.playbookId} text={props.playbook.data().implementationPlanBox} />
                     </div>
                     <div className="a3-row">
