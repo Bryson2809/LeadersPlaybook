@@ -6,10 +6,15 @@ import { getDoc, doc } from "firebase/firestore";
 
 import TextInputModal from "../modals/TextInputModal";
 
+// Component that displays one of 8 A3 problem solving stages
+// @dataName: the name of the firestore field corresponding to the box
+// @boxName: the name of the A3 stage
+// @plabookId: firestore document id of the playook this box belongs to
 const PlaybookBox = (props) => {
     const [showTextInputModal, setShowTextInputModal] = useState(false);
     const [text, setText] = useState(props.text);
 
+    //Get the appropriate text to reflect the value of the A3 prblem solving stage
     const getText = async () => {
         const docSnap = await getDoc(doc(db, "playbooks", props.playbookId));
         if (props.dataName === "problemDescriptionBox")

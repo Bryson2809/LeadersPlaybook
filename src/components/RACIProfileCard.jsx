@@ -7,6 +7,7 @@ import $, { event } from "jquery";
 
 import { getDoc, updateDoc, doc, collection } from "firebase/firestore";
 
+// Component that displays the RACI (Responsible, Accountable, Consulted, Informed) roles of a specific team member or director
 const RACIProfleCard = (props) => {
     const [name, setName] = useState("");
     const [r, setR] = useState(true);
@@ -15,6 +16,7 @@ const RACIProfleCard = (props) => {
     const [i, setI] = useState(true);
 
     useEffect(() => {
+        //Get the boolean value of each role for the RACI profile, and set accordingly
         const fetchRoles = async () => {
             const role = await getDoc(doc(db, "playbooks", "Kxla6slB7RIc19lJ4qWI", "RACIProfiles", "EhDdmAgrPsC4PiGwvwVc"));
             console.log(`Initial render ${role.data().R}`);
@@ -58,10 +60,11 @@ const RACIProfleCard = (props) => {
         fetchRoles();
     });
 
+    //When a role is clicked, toggle the background color to reflect if the role is applied to the RACI profile, and set boolean value in firestore
     const toggleRole = async (event) => {
         var role = event.currentTarget.id;
-        const docSnap = await getDoc(doc(db, "playbooks", "Kxla6slB7RIc19lJ4qWI", "RACIProfiles", "EhDdmAgrPsC4PiGwvwVc"));
 
+        const docSnap = await getDoc(doc(db, "playbooks", "Kxla6slB7RIc19lJ4qWI", "RACIProfiles", "EhDdmAgrPsC4PiGwvwVc"));
         const docRef = doc(db, "playbooks", "Kxla6slB7RIc19lJ4qWI", "RACIProfiles", "EhDdmAgrPsC4PiGwvwVc");
 
         if (role === "r") {
