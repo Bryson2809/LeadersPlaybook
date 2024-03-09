@@ -6,10 +6,12 @@ import { getDoc, doc } from "firebase/firestore";
 
 import TextInputModal from "../modals/TextInputModal";
 
+//Boxes in the playbook card displaying one of the A3 problem solving components
 const PlaybookBox = (props) => {
     const [showTextInputModal, setShowTextInputModal] = useState(false);
     const [text, setText] = useState(props.text);
 
+    //Determine which box is being accessed
     const getText = async () => {
         const docSnap = await getDoc(doc(db, "playbooks", props.playbookId));
         if (props.dataName === "problemDescriptionBox")

@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import "../App.css";
 //import { getValue } from '@testing-library/user-event/dist/utils';
 
+
+//Probably scraping this setup
 const RACICard = () => {
     const [text, setText] = useState("test");
 

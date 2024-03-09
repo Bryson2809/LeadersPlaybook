@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState, useRef, useEffect } from "react";
 
-import TextInputModal from '../modals/TextInputModal';
 import PlaybookBox from './PlaybookBox';
 
 const PlaybookCard = (props) => {
@@ -11,6 +10,7 @@ const PlaybookCard = (props) => {
 
     const Ref = useRef(null);
 
+    //Calculate time left until the playbook is due
     const getTimeRemaining = (e) => {
         const total =
             Date.parse(e) - Date.parse(new Date());
@@ -33,6 +33,7 @@ const PlaybookCard = (props) => {
         };
     };
  
+    
     const startTimer = (e) => {
         let { total, days, hours, minutes, seconds } =
             getTimeRemaining(e);
