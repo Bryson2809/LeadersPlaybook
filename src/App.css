@@ -162,6 +162,16 @@ h3 {
     border-top-left-radius: 25px;
 }
 
-.a3-box-text {
+.roles {
+    display: inline;
+}
 
+.roles button {
+    border-radius: 100%;
+    width: 25px;
+    margin: 5px;
+}
+
+.selected {
+    background-color: #E51636;
 }

@@ -4,7 +4,7 @@ import $ from "jquery";
 
 import { auth, db } from "../utils/firebase";
 
-import { doc, collection, getDoc, addDoc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 
 const TextInputModal = (props) => {
     const [text, setText] = useState(props.text);
@@ -13,6 +13,7 @@ const TextInputModal = (props) => {
         setText(e.target.value);
     }
 
+    // When the text of a box is changed, update the new text in firestore
     const onSubmit = async () => {
         const playbookBoxRef = doc(db, "playbooks", props.playbookId);
         var temp = $("#input").val();

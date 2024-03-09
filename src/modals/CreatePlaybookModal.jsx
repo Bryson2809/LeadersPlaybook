@@ -7,6 +7,7 @@ import { auth, db } from "../utils/firebase";
 
 import { doc, getDoc, addDoc, collection, setDoc } from "firebase/firestore";
 
+// Take in necessary info to create a playbook
 const CreatePlaybookModal = (props) => {
     const [area, setArea] = useState("General");
     const [startDate, setStartDate] = useState(new Date());
@@ -19,15 +20,7 @@ const CreatePlaybookModal = (props) => {
         const currentUser = auth.currentUser.displayName;
 
         try {
-            // if (docSnap.exists()) {
-            // const colRef = collection(docRef, "playbooks");
-            // addDoc(colRef, {
-            //     playbookName: playbookName,
-            //     area: area,
-            //     endDate: endDate,
-            //     createdOn: currentDate
-            //     });
-            // }
+            //Add new playbook document to firestore
             const colRef = collection(db, "playbooks");
             await addDoc(colRef, {
                 playbookName: playbookName,

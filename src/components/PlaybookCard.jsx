@@ -3,7 +3,10 @@ import { useState, useRef, useEffect } from "react";
 
 import TextInputModal from '../modals/TextInputModal';
 import PlaybookBox from './PlaybookBox';
+import RACIProfleCard from './RACIProfileCard';
 
+// Component holding all necessary information for a playbook
+// @playbook: the playbook firestore document displayed in the playbook card
 const PlaybookCard = (props) => {
 
     const [timer, setTimer] = useState("00:00:00:00");
@@ -11,6 +14,7 @@ const PlaybookCard = (props) => {
 
     const Ref = useRef(null);
 
+    //Calculate days, hours, minutes, seconds until due date
     const getTimeRemaining = (e) => {
         const total =
             Date.parse(e) - Date.parse(new Date());
@@ -74,6 +78,7 @@ const PlaybookCard = (props) => {
             <h2>Time Remaining: {timer}</h2>
             {show ? 
                 <div>
+                    <RACIProfleCard />
                     <div className="a3-row">
                         <PlaybookBox boxName="Problem Description" dataName="problemDescriptionBox" playbookId={props.playbook.id} text={props.playbook.data().problemDescriptionBox} playbook={props.playbook} />
                         <PlaybookBox boxName="Counter Measures" dataName="counterMeasuresBox" playbookId={props.playbookId} text={props.playbook.data().counterMeasuresBox}/>

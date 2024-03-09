@@ -14,6 +14,7 @@ const PlaybookPage = () => {
     const [showCreatePlaybookModal, setShowCreatePlaybookModal] = useState(false);
     const [playbooks, setPlaybooks] = useState([]);
 
+    //Retrieve all playbooks and map to the playbooks page
     const mapPlaybooks = async () => {
         const playbookRef = collection(db, "playbooks");
         const q = query(playbookRef);
@@ -28,7 +29,6 @@ const PlaybookPage = () => {
 
     useEffect(() => {
         mapPlaybooks();
-        //console.log(playbooks);
     }, [showCreatePlaybookModal]);
 
     const listPlaybooks = playbooks.map((playbook) => 
