@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 
 import TextInputModal from '../modals/TextInputModal';
 import PlaybookBox from './PlaybookBox';
+import RACIProfleCard from './RACIProfileCard';
 
 const PlaybookCard = (props) => {
 
@@ -74,6 +75,7 @@ const PlaybookCard = (props) => {
             <h2>Time Remaining: {timer}</h2>
             {show ? 
                 <div>
+                    <RACIProfleCard />
                     <div className="a3-row">
                         <PlaybookBox boxName="Problem Description" dataName="problemDescriptionBox" playbookId={props.playbook.id} text={props.playbook.data().problemDescriptionBox} playbook={props.playbook} />
                         <PlaybookBox boxName="Counter Measures" dataName="counterMeasuresBox" playbookId={props.playbookId} text={props.playbook.data().counterMeasuresBox}/>

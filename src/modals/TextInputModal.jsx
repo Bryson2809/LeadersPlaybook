@@ -7,7 +7,7 @@ import { auth, db } from "../utils/firebase";
 import { doc, collection, getDoc, addDoc, updateDoc } from "firebase/firestore";
 
 const TextInputModal = (props) => {
-    const [text, setText] = useState(props.problemDescriptionBox === null ? `Enter ${props.boxName.toLowerCase()} here` : props.problemDescriptionBox);
+    const [text, setText] = useState(props.text);
     
     const handleChange = (e) => {
         setText(e.target.value);
